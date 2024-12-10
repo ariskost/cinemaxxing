@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scrollbar-width: thin; /* Makes the scrollbar thin */
+    scrollbar-color: lightgray #f1f1f1; /* First color is the thumb, second is the track */
+}
+
+html,body {
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    box-shadow: 0 3px 6px 0 rgba(50,50,50,.3);
+    background-color: #f2f2f2;
+}
+
+.cinemaxxing_Navbar {
+    font-family: 'Open Sans', serif;
+    font-weight: 700;
+    color:#333
+}
+.search_Element {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.search_Element input.form-control[type="search"],.search_Element .btn{
+    box-shadow: none !important;
+}
+.search_Element input.form-control[type="search"] {
+    width: 200px;
+    border-radius: 25px 0px 0px 25px !important;
+    transition: all .5s;
+}
+.search_Element input.form-control[type="search"]:hover, 
+.search_Element input.form-control[type="search"]:focus,
+.search_Element input.form-control[type="search"]:active{
+    border-radius: 0px 0px 0px 0px !important;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #ced4da;
+    border-left: 1px solid transparent;
+    width: 100%;
+}
+.search_Element button {
+    border-radius: 0px 25px 25px 0px !important;
+}
+
+.navbar-toggler {
+    border: 0;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.offcanvas-header{
+    background-color: #f2f2f2;
+}
+
+.divider {
+    margin: auto;
+    height: 20px;
+    background: #333;
+    padding: 1px;
+}
+
+#cinemaxxingCarousel .carousel-inner .carousel-item img {
+    height: 90vh !important;
+}
+
+#cinemaxxingCarousel .carousel-inner .carousel-item .carousel-caption {
+    bottom: 1.75rem !important;
+}
+
+#cinemaxxingCarousel .carousel-inner .carousel-item .carousel-caption h3 {
+    font-weight: 700;
+    text-shadow: 2px 2px 5px gray;
+}
+
+.reservation_Btn {
+    padding: 12px 16px;
+    color: white !important;
+    background: #333;
+    text-decoration: none !important;
+    border-radius: 5px;
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 80%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carousel-item img {
+    position: relative;
+    z-index: 0;
+}
+
+.carousel-caption {
+    position: absolute;
+    z-index: 2;
+}
+
+
+
+
+/* Movies Search List */
+#moviesList {
+    position: absolute;
+    z-index: 10000000;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#moviesList .row {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin:auto;
+    width: 780px;
+}
+#moviesList img {
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
