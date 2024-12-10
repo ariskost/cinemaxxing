@@ -152,9 +152,7 @@
         </nav>
     </header>
 
-    <div id="moviesList" class="mt-4">
-        <div class="container"></div>
-    </div>
+    <div id="moviesList" class="mt-4"></div>
 
 
     
