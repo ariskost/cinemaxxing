@@ -9,7 +9,7 @@
     <!-- Desktop Navbar -->
     <nav class="navbar navbar-expand-lg d-none d-lg-block">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" alt="imageRender" width="120"></a>
+            <a class="navbar-brand" href="<?= BASE_URL ?>/index.php"><img src="<?= BASE_URL ?>/assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -18,10 +18,10 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mx-5 mb-lg-0 cinemaxxing_Navbar">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">ΑΡΧΙΚΗ</a>
+                        <a class="nav-link active" aria-current="page" href="<?= BASE_URL ?>/index.php">ΑΡΧΙΚΗ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="compress-image.php">ΤΑΙΝΙΕΣ</a>
+                        <a class="nav-link" href="<?= BASE_URL ?>/views/movies.php">ΤΑΙΝΙΕΣ</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -91,13 +91,13 @@
     <!-- Mobile Off-Canvas Menu -->
     <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
         <div class="offcanvas-header">
-            <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
+            <a class="navbar-brand" href="<?= BASE_URL ?>/index.php"><img src="assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">ΑΡΧΙΚΗ</a>
+                    <a class="nav-link active" aria-current="page" href="<?= BASE_URL ?>/index.php">ΑΡΧΙΚΗ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ΤΑΙΝΙΕΣ</a>

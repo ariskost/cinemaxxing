@@ -135,3 +135,68 @@ header{
     object-fit: cover;
     border-radius: 5px;
 }
+
+
+
+/* Movies Section */
+
+#hero_section {
+    background:url("../img/movies_section_bg_1.jpg");
+    background-size: 100%;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#hero_section .hero_Section_Wrapper {
+    color:#f2f2f2 !important;
+}
+
+.movies_Container h3 {
+    margin:20px 24px; 
+    padding-left:85px !important;
+    font-weight: bold;
+}
+
+.movies_Container hr {
+    margin: 0 110px !important;
+}
+#movies_section {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+
+.movie_Card {
+    width: 18rem;
+    height: 560px !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie_Card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie_Card .card-body .card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.movie_Card .card-body .card-title small {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+}
+
+.btn-cinemaxxing {
+    background: #791A20 !important;
+    color: white !important;
+}
+
+.btn-cinemaxxing:hover {
+    background: #440409 !important;
+}
