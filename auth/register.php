@@ -74,30 +74,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="alert alert-info"><?= $message ?></div>
                                 <?php endif; ?>
                                 <form action="" method="post" class="my-3">
-                                    <div class="form-group first">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control auth_Form_Input" id="fullname" name="fullname" placeholder="Fullname" required />
                                         <label for="fullname">Fullname</label>
-                                        <input type="text" class="form-control" id="fullname" name="fullname" required />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control auth_Form_Input" id="email" name="email" placeholder="name@example.com" required />
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" required />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control auth_Form_Input" id="username" name="username" placeholder="Username" required />
                                         <label for="username">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" required />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="number" class="form-control auth_Form_Input" id="age" name="age" placeholder="Age" required />
                                         <label for="age">Age</label>
-                                        <input type="number" class="form-control" id="age" name="age" required />
                                     </div>
-                                    <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" required />
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control auth_Form_Input" id="password" name="password" placeholder="Password" required />
+                                        <label for="floatingPassword">Password</label>
                                     </div>
-                                    <div class="form-group last mb-4">
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control auth_Form_Input" id="password_confirmation" name="password_confirmation" placeholder="Password" required />
                                         <label for="password_confirmation">Confirm Password</label>
-                                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required />
                                     </div>
+                 
                                     <input type="hidden" name="user_type" value="client" />
                                     <input type="submit" value="Register" class="btn btn-block btn-primary w-100">
                                 </form>
@@ -110,5 +111,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </section>
+    <?php require_once(ROOT_PATH . '/includes/scripts.php'); ?>
 </body>
 </html>

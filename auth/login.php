@@ -48,7 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['fullname'] = $user['fullname'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['type'] = $user['type'];
-                header("Location: " . BASE_URL . "/index.php");
+                
+                //header("Location: " . BASE_URL . "/index.php");
+                // Redirect based on user type
+                if ($user['type'] === 'employee') {
+                    header("Location: " . BASE_URL . "/views/admin/dashboard.php");
+                } else {
+                    header("Location: " . BASE_URL . "/index.php");
+                }
+
                 exit();
             } else {
                 $message = 'Invalid password.';
@@ -81,13 +89,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="alert alert-danger"><?= $message ?></div>
                                 <?php endif; ?>
                                 <form action="<?= BASE_URL ?>/auth/login.php" method="post" class="my-3">
-                                    <div class="form-group first">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control auth_Form_Input" id="username" name="username" placeholder="Your Username..." required />
                                         <label for="username">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" required>
                                     </div>
-                                    <div class="form-group last mb-4">
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control auth_Form_Input" id="password" name="password" placeholder="Your Password..." required />
                                         <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" required>
                                     </div>
                                     <input type="submit" value="Log In" class="btn btn-block btn-primary w-100">
                                 </form>
@@ -100,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </section>
+    <?php require_once(ROOT_PATH . '/includes/scripts.php'); ?>
 </body>
 </html>
 

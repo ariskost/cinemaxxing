@@ -1,10 +1,3 @@
-<?php
-    //session_start(); // Start the session
-
-    // Check if the user is logged in
-    $is_logged_in = isset($_SESSION['user_id']);
-    $fullname = $is_logged_in ? $_SESSION['fullname'] : null;
-?>
 <header>
     <!-- Desktop Navbar -->
     <nav class="navbar navbar-expand-lg d-none d-lg-block">
@@ -23,6 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_URL ?>/views/movies.php">ΤΑΙΝΙΕΣ</a>
                     </li>
+                    <!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             ΚΑΤΗΓΟΡΙΕΣ
@@ -37,15 +31,19 @@
                             <li><a class="dropdown-item disabled" href="#">More Tools Coming Soon</a></li>
                         </ul>
                     </li>
+                    -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="roomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             ΑΙΘΟΥΣΕΣ
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Comfort</a></li>
-                            <li><a class="dropdown-item" href="#">Family</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item disabled" href="#">More Rooms Coming Soon</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="roomsDropdown">
+                            <?php foreach ($rooms as $room): ?>
+                                <li>
+                                    <a class="dropdown-item" href="<?= BASE_URL ?>/views/room.php?room_id=<?= $room['room_id'] ?>">
+                                        <?= htmlspecialchars($room['room_name']) ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
                     
@@ -59,7 +57,6 @@
                 
                 <ul class="navbar-nav mx-5 mb-lg-0 cinemaxxing_Navbar">
                     <?php if ($is_logged_in): ?>
-                    
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-regular fa-user"></i>
@@ -67,7 +64,15 @@
                             <ul class="dropdown-menu dropdown-menu-end user_Dropdown">
                                 <li class="nav-item text-center">
                                     <span class="nav-link">Welcome,</span><small><?= htmlspecialchars($fullname) ?>!</small>
+                                    <p>Total Approved Reservations: <strong><?= $approved_reservations ?></strong></p>
                                 </li>
+                                <?php if ($_SESSION['type'] === 'employee'): ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="<?= BASE_URL ?>/views/admin/dashboard.php">
+                                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= BASE_URL ?>/auth/login.php"><i class="fas fa-sign-out-alt me-2"></i>ΑΠΟΣΥΝΔΕΣΗ</a>

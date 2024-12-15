@@ -200,3 +200,10 @@ h2 { font-size: 20px; }
     color: #999;
     text-transform: uppercase;
 }
+
+
+.auth_Form_Input {
+    position: relative !important;
+    background: #edf2f5 !important;
+    border-bottom: 1px solid #e6edf1 !important;
+}

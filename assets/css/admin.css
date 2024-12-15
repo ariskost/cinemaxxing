@@ -1,0 +1,44 @@
+#moviesTable_filter {
+    display: flex;
+}
+
+#moviesTable_filter label {
+    margin: auto 0;
+    width: 100% !important;
+}
+
+#moviesTable_filter .add_Movie {
+    margin: auto 0;
+}
+
+#moviesTable_filter label input {
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    background: transparent;
+    width: 360px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition:all .3s !important;
+}
+
+#moviesTable_filter label input:hover, 
+#moviesTable_filter label input:focus {
+    width: 100% !important;
+}
+
+
+.container_header{
+    display: flex;
+    flex-direction: row;
+}
+
+.add_Movie_Title{
+    margin: auto auto auto 0;
+}
+.back_To_Movies {
+    margin: auto 0 auto 0;
+    padding: 10px;
+    background: gray;
+    color: white !important;
+    text-decoration: none !important;
+}
