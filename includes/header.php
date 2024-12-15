@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_URL ?>/views/movies.php">ΤΑΙΝΙΕΣ</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             ΚΑΤΗΓΟΡΙΕΣ
                         </a>
@@ -29,7 +29,7 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item disabled" href="#">More Tools Coming Soon</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="roomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             ΑΙΘΟΥΣΕΣ

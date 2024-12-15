@@ -6,7 +6,7 @@
     require_once(ROOT_PATH . '/includes/head.php'); // Use ROOT_PATH to resolve the filesystem path
     // Include the database configuration
     require_once(ROOT_PATH . '/database/config/db_config.php');
-    require_once(ROOT_PATH . '/includes/header.php');
+    
 
     // Check if the user is logged in
     if (!isset($_SESSION['user_id'])) {
@@ -28,9 +28,39 @@
     // Fetch all rows as an associative array
     $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+
+    // Fetch all rooms
+    $rooms_query = "SELECT room_id, room_name FROM rooms";
+    $rooms_result = mysqli_query($conn, $rooms_query);
+
+    $rooms = [];
+    if (!$rooms_result) {
+        die("Query failed: " . mysqli_error($conn));
+    }
+
+    $rooms = mysqli_fetch_all($rooms_result, MYSQLI_ASSOC);
+
+    $is_logged_in = isset($_SESSION['user_id']);
+    $fullname = $is_logged_in ? $_SESSION['fullname'] : null;
+
+    if ($is_logged_in) {
+        $user_id = $_SESSION['user_id']; // Get the logged-in user's ID
+        $count_approved = "SELECT COUNT(*) AS `approved_count` FROM `reservations` WHERE `user_id` = ? AND `status` = 'approved'";
+        $stmt = mysqli_prepare($conn, $count_approved);
+        mysqli_stmt_bind_param($stmt, 'i', $user_id);
+        mysqli_stmt_execute($stmt);
+        $count_approved_result = mysqli_stmt_get_result($stmt);
+        $approved_reservations = mysqli_fetch_assoc($count_approved_result)['approved_count'];
+    } else {
+        $approved_reservations = 0; // Default to 0 if not logged in
+    }
+
+
+    
     // Close the connection
     mysqli_close($conn);
-
+    
+    require_once(ROOT_PATH . '/includes/header.php');
 
 ?>
 
