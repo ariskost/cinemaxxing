@@ -67,10 +67,10 @@
 <section id="movies">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="movies_Header_Column col-12">
                 <div id="hero_section">
                     <div class="hero_Section_Wrapper px-4 py-5 text-center">
-                        <img class="d-block mx-auto mb-4" src="<?= BASE_URL ?>/assets/img/logo.png" alt="" width="72" height="57">
+                        <!-- <img class="d-block mx-auto mb-4" src="<?= BASE_URL ?>/assets/img/logo.png" alt="" width="72" height="57"> -->
                         <h1 class="display-5 fw-bold">Your Next Favorite Movie Awaits</h1>
                         <div class="col-lg-6 mx-auto">
                             <p class="lead mb-4">Dive into a world of action, drama, and adventure. Explore top-rated hits and hidden gems, all in one place. Ready to find your next obsession?</p>
@@ -90,8 +90,8 @@
         <div id="movies_section">
             <div class="movies_Section_Wrapper row px-4 py-5 text-center w-100">
                 <?php foreach ($movies as $index => $movie): ?>
-                    <div class="movie_Card_Col col-3 d-flex">
-                        <div class="card movie_Card m-auto <?= $index === 0 ? 'active' : '' ?>">
+                    <div class="movie_Card_Col col-12 col-lg-3 col-md-6 d-flex">
+                        <div class="card movie_Card mx-auto my-3 <?= $index === 0 ? 'active' : '' ?>">
                             <img src="<?= BASE_URL ?>/assets/img/movies/<?= htmlspecialchars($movie['img_poster']) ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= htmlspecialchars($movie['name']) ?> <small>(<?= htmlspecialchars($movie['release_year']) ?>)</small></h5>

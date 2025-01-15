@@ -200,3 +200,7 @@ header{
 .btn-cinemaxxing:hover {
     background: #440409 !important;
 }
+
+.movies_Header_Column {
+    background: black;
+}

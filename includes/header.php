@@ -2,7 +2,7 @@
     <!-- Desktop Navbar -->
     <nav class="navbar navbar-expand-lg d-none d-lg-block">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?= BASE_URL ?>/index.php"><img src="<?= BASE_URL ?>/assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
+            <a class="navbar-brand cinemaxxing_Logo" href="<?= BASE_URL ?>/index.php"><img src="<?= BASE_URL ?>/assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_URL ?>/views/movies.php">ΤΑΙΝΙΕΣ</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             ΚΑΤΗΓΟΡΙΕΣ
                         </a>
@@ -29,7 +29,7 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item disabled" href="#">More Tools Coming Soon</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="roomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             ΑΙΘΟΥΣΕΣ
@@ -62,7 +62,7 @@
                             <ul class="dropdown-menu dropdown-menu-end user_Dropdown">
                                 <li class="nav-item text-center">
                                     <span class="nav-link">Welcome,</span><small><?= htmlspecialchars($fullname) ?>!</small>
-                                    <p>Total Approved Reservations: <strong><?= $approved_reservations ?></strong></p>
+                                    <p class="h6">Total Approved Reservations: <strong><?= $approved_reservations ?></strong></p>
                                 </li>
                                 <?php if ($_SESSION['type'] === 'employee'): ?>
                                     <li class="nav-item">
@@ -94,7 +94,8 @@
     <!-- Mobile Off-Canvas Menu -->
     <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
         <div class="offcanvas-header">
-            <a class="navbar-brand" href="<?= BASE_URL ?>/index.php"><img src="assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
+            <a class="navbar-brand cinemaxxing_Logo_Responsive" href="<?= BASE_URL ?>/index.php"><img src="<?= BASE_URL ?>/assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
+
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -103,9 +104,9 @@
                     <a class="nav-link active" aria-current="page" href="<?= BASE_URL ?>/index.php">ΑΡΧΙΚΗ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ΤΑΙΝΙΕΣ</a>
+                    <a class="nav-link" href="<?= BASE_URL ?>/views/movies.php">ΤΑΙΝΙΕΣ</a>
                 </li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         ΚΑΤΗΓΟΡΙΕΣ
                     </a>
@@ -118,25 +119,56 @@
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item disabled" href="#">More Tools Coming Soon</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="roomsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         ΑΙΘΟΥΣΕΣ
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Comfort</a></li>
-                        <li><a class="dropdown-item" href="#">Family</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item disabled" href="#">More Rooms Coming Soon</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="roomsDropdown">
+                        <?php foreach ($rooms as $room): ?>
+                            <li>
+                                <a class="dropdown-item" href="<?= BASE_URL ?>/views/room.php?room_id=<?= $room['room_id'] ?>">
+                                    <?= htmlspecialchars($room['room_name']) ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
+
+                <?php if ($is_logged_in): ?>
+                    
+                    <li class="nav-item">
+                        <span class="nav-link"> <i class="fa-regular fa-user"></i> Welcome, <small><?= htmlspecialchars($fullname) ?>!</small></span>
+                        <p class="h6">Total Approved Reservations: <strong><?= $approved_reservations ?></strong></p>
+                    </li>
+                    <?php if ($_SESSION['type'] === 'employee'): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= BASE_URL ?>/views/admin/dashboard.php">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_URL ?>/auth/login.php"><i class="fas fa-sign-out-alt me-2"></i>ΑΠΟΣΥΝΔΕΣΗ</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_URL ?>/auth/register.php">ΕΓΓΡΑΦΗ</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_URL ?>/auth/login.php">ΣΥΝΔΕΣΗ</a>
+                    </li>
+                <?php endif; ?>
 
             </ul>
         </div>
     </div>
     
     <nav class="navbar d-lg-none">
-        <a class="navbar-brand d-lg-none mx-3" href="index.php"><img src="assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
+        <a class="navbar-brand d-lg-none mx-3" href="<?= BASE_URL ?>/index.php"><img src="<?= BASE_URL ?>/assets/img/logo.png" alt="Cinemaxxing" width="120"></a>
+
         <!-- Mobile Navbar Toggle Button -->
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

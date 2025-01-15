@@ -97,7 +97,7 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'employee') {
                 initComplete: function () {
                     // Append "Add Movie" button to the filter row
                     const addMovieButton = `
-                        <a href="<?= BASE_URL ?>/views/admin/movies/add_movie.php" class="add_Movie btn btn-success ms-3">
+                        <a href="<?= BASE_URL ?>/views/admin/movies/add_movie.php" class="add_Movie btn btn-sm btn-success ms-3">
                             <i class="fas fa-plus"></i> Add Movie
                         </a>`;
                     $('.action_Column').append(addMovieButton);

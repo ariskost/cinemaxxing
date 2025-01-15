@@ -35,7 +35,12 @@
     }
     
     $room = mysqli_fetch_assoc($resultRoom);
-    
+    $room_Name = $room['room_name'];
+    // echo "<pre>";
+    // print_r($room);
+    // echo "<br>";
+    // print_r($room_Name);
+    // die();
     // Fetch movies assigned to this room
     $sqlMovies = "
         SELECT m.id, m.name, m.img_poster, m.release_year, m.description
@@ -87,10 +92,10 @@
 <section id="rooms">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="movies_Header_Column col-12">
                 <div id="hero_section">
                     <div class="hero_Section_Wrapper px-4 py-5 text-center">
-                        <img class="d-block mx-auto mb-4" src="<?= BASE_URL ?>/assets/img/logo.png" alt="" width="72" height="57">
+                        <!-- <img class="d-block mx-auto mb-4" src="<?= BASE_URL ?>/assets/img/logo.png" alt="" width="72" height="57"> -->
                         <h1 class="display-5 fw-bold">Your Next Favorite Movie Awaits</h1>
                         <div class="col-lg-6 mx-auto">
                             <p class="lead mb-4">Dive into a world of action, drama, and adventure. Explore top-rated hits and hidden gems, all in one place. Ready to find your next obsession?</p>
@@ -104,7 +109,7 @@
         </div>
     </div>
     <div class="container-fluid rooms_Container">
-        <h3 class="px-3 my-3 fw-bold">ΔΙΑΘΕΣΙΜΕΣ ΤΑΙΝΙΕΣ | <?= htmlspecialchars($room['room_name']) ?></h3>
+        <h3 class="px-3 my-3 fw-bold">ΔΙΑΘΕΣΙΜΕΣ ΤΑΙΝΙΕΣ | <?= htmlspecialchars($room_Name) ?></h3>
         <hr />
 
         <div id="rooms_section">
@@ -113,8 +118,8 @@
                     <p class="text-center">No movies available in this room.</p>
                 <?php else: ?>
                     <?php foreach ($movies as $movie): ?>
-                        <div class="movie_Card_Col col-4 d-flex">
-                            <div class="card movie_Card m-auto <?= $index === 0 ? 'active' : '' ?>">
+                        <div class="movie_Card_Col col-12 col-lg-4 col-md-6 d-flex">
+                            <div class="card movie_Card mx-auto my-2 <?= $index === 0 ? 'active' : '' ?>">
                                 <img src="<?= BASE_URL ?>/assets/img/movies/<?= htmlspecialchars($movie['img_poster']) ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= htmlspecialchars($movie['name']) ?> <small>(<?= htmlspecialchars($movie['release_year']) ?>)</small></h5>

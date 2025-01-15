@@ -76,7 +76,7 @@
                 <p><strong>Age Restriction:</strong> <?= htmlspecialchars($movie['age_restriction_limit'] ?? 'Unknown') ?></p>
                 <p><strong>Duration:</strong> <?= htmlspecialchars($movie['duration'] ?? 'Unknown') ?></p>
                 <p><strong>Rating:</strong> <?= htmlspecialchars($movie['imdb_rating'] ?? 'Not Rated') ?></p>
-                <a href="#" class="btn btn-cinemaxxing">ΚΑΝΤΕ ΚΡΑΤΗΣΗ</a>
+                <!-- <a href="#" class="btn btn-cinemaxxing">ΚΑΝΤΕ ΚΡΑΤΗΣΗ</a> -->
             </div>
         </div>
     </div>
